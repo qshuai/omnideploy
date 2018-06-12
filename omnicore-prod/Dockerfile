@@ -10,6 +10,7 @@ RUN apt-get update \
     && apt-get -y install libdb4.8-dev libdb4.8++-dev \
     && apt-get -y install libminiupnpc-dev \
     && apt-get -y install libzmq3-dev
+    && rm -rf /var/lib/apt/lists/*
 
 COPY ./omnicore /omnicore
 WORKDIR /omnicore
