@@ -21,10 +21,9 @@
    cp install.sh omnicore
    cp bitcoin.conf ~/.omnicore/
    
-   docker run -d --name omnicore-dev -v /home/cp/.omnicore:/root/.bitcoin -v $(pwd)/omnicore:/omnicore omnicore:dev /omnicore/install.sh
+   docker run -d --name omnicore-dev -v ~/.omnicore:/root/.bitcoin -v $(pwd)/omnicore:/omnicore omnicore:dev /omnicore/install.sh
    docker logs -f omnicore-dev
    // wait finish installation
    docker exec -d omnicore-dev /omnicore/src/omnicored
    ```
 
-   
