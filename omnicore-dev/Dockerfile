@@ -13,7 +13,4 @@ RUN apt-get update \
 
 COPY ./omnicore /omnicore
 
-COPY ./bitcoin.conf /root/.omnicore/
-COPY ./install.sh /omnicore/
-
 CMD /bin/bash
