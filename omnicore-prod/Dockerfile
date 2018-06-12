@@ -20,6 +20,6 @@ RUN ./autogen.sh \
     && make install
     && rm -rf /omnicore
 
-COPY ./bitcoin.conf /root/.omnicore/
+COPY ./bitcoin.conf /root/.bitcoin/
 
-CMD ./src/omnicored -txindex -datadir=/root/.omnicore
+CMD ./src/omnicored
