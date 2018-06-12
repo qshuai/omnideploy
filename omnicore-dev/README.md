@@ -16,7 +16,7 @@
    cd omnicore-dev
    git clone https://github.com/omnicash/omnicore.git
    
-   docker build omnicore:dev .
+   docker build -t omnicore:dev .
    
    cp install.sh omnicore
    cp bitcoin.conf ~/.omnicore/
