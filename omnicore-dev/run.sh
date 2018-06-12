@@ -1,1 +1,0 @@
-/omnicore/src/omnicored
