@@ -17,6 +17,7 @@ RUN ./autogen.sh \
     && ./configure \
     && make -j4 \
     && make install
+    && rm -rf /omnicore
 
 COPY ./bitcoin.conf /root/.omnicore/
 
