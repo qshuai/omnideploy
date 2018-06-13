@@ -22,4 +22,4 @@ RUN ./autogen.sh \
 
 COPY ./bitcoin.conf /root/.bitcoin/
 
-CMD ./src/omnicored
+CMD omnicored
