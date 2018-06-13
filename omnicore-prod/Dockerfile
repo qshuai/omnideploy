@@ -9,7 +9,7 @@ RUN apt-get update \
     && apt-get -y update \
     && apt-get -y install libdb4.8-dev libdb4.8++-dev \
     && apt-get -y install libminiupnpc-dev \
-    && apt-get -y install libzmq3-dev
+    && apt-get -y install libzmq3-dev \
     && rm -rf /var/lib/apt/lists/*
 
 COPY ./omnicore /omnicore
@@ -17,7 +17,7 @@ WORKDIR /omnicore
 RUN ./autogen.sh \
     && ./configure \
     && make -j4 \
-    && make install
+    && make install \
     && rm -rf /omnicore
 
 COPY ./bitcoin.conf /root/.bitcoin/
