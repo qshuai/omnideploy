@@ -13,7 +13,9 @@ RUN apt-get update \
     && apt-get -y install libzmq3-dev \
     && rm -rf /var/lib/apt/lists/*
 
-RUN curl https://github.com/OmniLayer/omnicore/archive/$OMNICORE_VERSION.tar.gz \
+RUN apt-get update \
+    && apt-get install curl \
+    && curl https://github.com/OmniLayer/omnicore/archive/$OMNICORE_VERSION.tar.gz \
     && tar zxf $OMNICORE_VERSION.tar.gz -C / \
     && rm $OMNICORE_VERSION.tar.gz
 
