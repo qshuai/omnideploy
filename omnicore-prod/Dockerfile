@@ -1,5 +1,7 @@
 FROM alpine/git
 MAINTAINER qshuai <qishuai231@gmail.com>
+
+WORKDIR /
 RUN git clone https://github.com/OmniLayer/omnicore.git
 
 FROM ubuntu:16.04
