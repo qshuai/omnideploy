@@ -23,4 +23,4 @@ RUN ./autogen.sh \
     && make install \
     && rm -rf /omnicore
 
-CMD omnicored
+ENTRYPOINT ["omnicored"]
