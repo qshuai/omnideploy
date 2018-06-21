@@ -1,10 +1,6 @@
-FROM alpine/git
-MAINTAINER qshuai <qishuai231@gmail.com>
-
-WORKDIR /
-RUN git clone https://github.com/OmniLayer/omnicore.git
-
 FROM ubuntu:16.04
+
+ENV OMNICORE_VERSION v0.3.0
 
 RUN apt-get update \
     && apt-get install -y build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils \
@@ -16,6 +12,10 @@ RUN apt-get update \
     && apt-get -y install libminiupnpc-dev \
     && apt-get -y install libzmq3-dev \
     && rm -rf /var/lib/apt/lists/*
+
+RUN curl https://github.com/OmniLayer/omnicore/archive/$OMNICORE_VERSION.tar.gz \
+    && tar zxf $OMNICORE_VERSION.tar.gz -C / \
+    && rm $OMNICORE_VERSION.tar.gz
 
 WORKDIR /omnicore
 
