@@ -1,5 +1,8 @@
-FROM ubuntu:18.04
+FROM alpine/git
 MAINTAINER qshuai <qishuai231@gmail.com>
+RUN git clone https://github.com/OmniLayer/omnicore.git
+
+FROM ubuntu:16.04
 
 RUN apt-get update \
     && apt-get install -y build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils \
@@ -12,14 +15,12 @@ RUN apt-get update \
     && apt-get -y install libzmq3-dev \
     && rm -rf /var/lib/apt/lists/*
 
-COPY ./omnicore /omnicore
 WORKDIR /omnicore
+
 RUN ./autogen.sh \
-    && ./configure \
+    && ./configure --without-gui \
     && make -j4 \
     && make install \
     && rm -rf /omnicore
-
-COPY ./bitcoin.conf /root/.bitcoin/
 
 CMD omnicored
